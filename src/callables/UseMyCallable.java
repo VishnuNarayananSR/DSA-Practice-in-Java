@@ -13,7 +13,7 @@ public class UseMyCallable {
                 .collect(Collectors.toList());
 
         ExecutorService service = Executors.newFixedThreadPool(3);
-        List<Future<String>> futures = null;
+        List<Future<String>> futures;
         try {
             futures = service.invokeAll(callables);
             for (Future<String> future : futures) {
