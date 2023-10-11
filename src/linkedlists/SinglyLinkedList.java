@@ -14,18 +14,26 @@ class Node {
 }
 
 public class SinglyLinkedList {
-    Node head;
+    Node head, tail;
+
+    public SinglyLinkedList() {
+
+    }
+
+    public SinglyLinkedList(int[] arr) {
+        for (int n : arr) {
+            append(n);
+        }
+    }
 
     public void append(int data) {
         if (head == null) {
             head = new Node(data);
+            tail = head;
             return;
         }
-        Node current = head;
-        while (current.hasNext()) {
-            current = current.next;
-        }
-        current.next = new Node(data);
+        tail.next = new Node(data);
+        tail = tail.next;
     }
 
     public void prepend(int data) {
